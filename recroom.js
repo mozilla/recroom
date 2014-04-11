@@ -1,10 +1,25 @@
 #! /usr/bin/env node
 'use strict';
 
+var VERSION = '0.0.1';
+
 var chalk = require('chalk');
 var nopt = require('nopt');
 var shell = require('shelljs');
 var spawn = require('child_process').spawn;
+
+var opts = nopt({
+    help: Boolean,
+    version: Boolean
+}, {
+    h: '--help',
+    v: '--version'
+});
+
+// Display version information.
+if (opts.version) {
+    return console.log(chalk.blue('Mozilla recroom, Version ' + VERSION));
+}
 
 // Thanks to @fwenzel for this one.
 console.log(
@@ -24,18 +39,10 @@ console.log(
     chalk.red("vVVv    vVVv                 ': "), chalk.white("|_| |_| |_|\\___/___|_|_|_|\\__,_|"), chalk.red(" ''\n\n")
 );
 
-var opts = nopt({
-    help: Boolean,
-    version: Boolean
-}, {
-    h: '--help',
-    v: '--version'
-});
-
 var command = opts.argv.remain[0];
 
 // Create a new project and initialize an app using generator-recroom.
-if (command === 'new') {
+if (command === 'new' || command === 'create') {
     var projectName = opts.argv.remain[1] || 'recroom-app';
 
     // Abort if this project already exists.
