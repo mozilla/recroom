@@ -11,6 +11,12 @@ toc_footers:
 
 ---
 
+# WORK IN PROGRESS
+
+Note that these docs are a work-in-progress, part of the
+documentation-driven-development of Mozilla's recroom. Please don't expect them
+to work yet. Thanks! ♥
+
 # Installation
 
 ``` bash
