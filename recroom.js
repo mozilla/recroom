@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 'use strict';
 
+var DEFAULT_PROJECT_NAME = 'recroom-app';
 var VERSION = '0.0.1';
 
 var chalk = require('chalk');
@@ -49,7 +50,7 @@ if (opts.banner) {
 
 // Create a new project and initialize an app using generator-recroom.
 if (command === 'new' || command === 'create') {
-    var projectName = opts.argv.remain[1] || 'recroom-app';
+    var projectName = opts.argv.remain[1] || DEFAULT_PROJECT_NAME;
 
     // Abort if this project already exists.
     if (shell.test('-e', projectName)) {

@@ -9,7 +9,7 @@
     "mvc",
     "ember"
   ],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/mozilla/recroom",
   "repository": {
     "type": "git",
@@ -19,7 +19,10 @@
   "dependencies": {
     "shelljs": "~0.2.6",
     "chalk": "~0.4.0",
-    "nopt": "~2.2.0"
+    "nopt": "~2.2.0",
+    "grunt": "~0.4.4",
+    "load-grunt-tasks": "^0.4.0",
+    "grunt-shell": "^0.6.4"
   },
   "devDependencies": {},
   "peerDependencies": {
