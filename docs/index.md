@@ -26,9 +26,7 @@ started with recroom.
 recroom uses Ember.js as the framework to build your app's controllers, models,
 and views. Our documentation will walk you through the basics of how to use
 Ember.js to build your app, but you can always refer to the
-[Ember.js docs][] if you need aditional information.
-
-[Ember.js docs]: http://emberjs.com/api/
+[Ember.js docs](http://emberjs.com/api/) if you need aditional information.
 
 <aside class="notice">
   If you get an error about permissions and are on Linux, Mac OS X, or another
