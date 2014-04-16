@@ -1,0 +1,156 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>recroom</title>
+
+    <link href="stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+    <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="javascripts/all.js" type="text/javascript"></script>
+
+    <script>
+      $(function() {
+        var toc = $("#toc").tocify({
+          selectors: "h1,h2",
+          extendPage: false,
+          theme: "none",
+          smoothScroll: false,
+          showEffectSpeed: 0,
+          hideEffectSpeed: 180,
+          ignoreSelector: ".toc-ignore",
+          hashGenerator: 'pretty',
+          highlightOffset: 60,
+          scrollTo: -2,
+          scrollHistory: true,
+          hashGenerator: function(text, element) {
+            return element[0].getAttribute('id');
+          }
+        }).data("toc-tocify");
+        // Hack to make already open sections to start opened,
+        // instead of displaying an ugly animation
+        setTimeout(function() {
+          toc.setOption("showEffectSpeed", 180);
+        },50);
+        setupLanguages([
+          
+            
+              
+                'javascript',
+              
+            
+              
+                'coffeescript',
+              
+            
+          
+        ]);
+      });
+    </script>
+  </head>
+
+  <body class="index">
+    <div class="tocify-wrapper">
+      <a href="https://mozilla.org/" id="logo">
+        <img alt="Mozilla" src="images/logo.png" />
+      </a>
+      <div id="toc">
+      </div>
+      
+      <ul class="toc-footer">
+        
+          <li><a href="https://github.com/mozilla/recroom">Contribute to recroom</a></li>
+        
+          <li><a href="https://github.com/tripit/slate">(Docs Powered by Slate)</a></li>
+        
+      </ul>
+      
+
+      <div class="build-status">
+        <a href="http://travis-ci.org/mozilla/localForage"><img src="https://secure.travis-ci.org/mozilla/localForage.png?branch=master" alt="Build Status"></a>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <h1 id="installation">Installation</h1>
+<pre class="highlight shell"><span class="c"># Install using npm (comes with Node.js)</span>
+<span class="c"># recroom is installed globally so you can use it on the command</span>
+<span class="c"># line from any directory.</span>
+npm install -g recroom
+</pre>
+
+<p>recroom requires <a href="http://nodejs.org/download/">Node.js</a>. Install node to get
+started with recroom.</p>
+
+<p>recroom uses Ember.js as the framework to build your app&rsquo;s controllers, models,
+and views. Our documentation will walk you through the basics of how to use
+Ember.js to build your app, but you can always refer to the
+<a href="http://emberjs.com/api/">Ember.js docs</a> if you need aditional information.</p>
+
+<p><aside class="notice">
+  If you get an error about permissions and are on Linux, Mac OS X, or another
+  flavour of Unix, you may need to use <code class="prettyprint">sudo</code>:<br>
+  <code class="prettyprint">sudo npm install -g recroom</code>.
+</aside></p>
+
+<h1 id="create-your-first-project">Create Your First Project</h1>
+<pre class="highlight shell"><span class="c"># Create a project (you can call it whatever you want).</span>
+<span class="c"># A new folder will be created inside the directory you</span>
+<span class="c"># run recroom in.</span>
+recroom new my-app
+</pre>
+
+<p>Think up a name for your project and run <code class="prettyprint">recroom new my-app</code>.</p>
+
+<p><aside class="notice">
+  If you don&rsquo;t name your project, recroom will create a new project named
+  <code class="prettyprint">recroom-app</code>. You can change the name of your project later by hand.
+</aside></p>
+
+<h1 id="start-your-app">Start Your App</h1>
+<pre class="highlight shell"><span class="c"># Enter your project's folder.</span>
+<span class="c"># TODO: cd into the project on creation automatically?</span>
+<span class="nb">cd </span>my-app
+
+<span class="c"># Run your recroom app.</span>
+recroom run
+</pre>
+
+<p>Now that you&rsquo;ve created an app, you can start it by running <code class="prettyprint">recroom run</code>.
+develop it and test it. When you server your app, recroom will automatically
+compile your JavaScript, CoffeeScript, and Stylus.</p>
+
+<p><aside class="success">
+  Whenever you type <code class="prettyprint">recroom run</code>, your app will automatically be opened in
+  your system&rsquo;s default web browser.</p>
+
+<p>If you&rsquo;d like to run your app via the recroom server, without opening your
+  browser, type <code class="prettyprint">recroom serve</code> instead.
+</aside></p>
+
+        
+      </div>
+      <div class="dark-box">
+        <div id="lang-selector">
+          
+            
+              
+                <a href="#" data-language-name="javascript">javascript</a>
+              
+            
+              
+                <a href="#" data-language-name="coffeescript">coffeescript</a>
+              
+            
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
