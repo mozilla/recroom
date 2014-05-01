@@ -46,10 +46,12 @@ Ember.js to build your app, but you can always refer to the
 # Create a project (you can call it whatever you want).
 # A new folder will be created inside the directory you
 # run recroom in.
-recroom new my-app
+recroom new high-fidelity
 ```
 
-Think up a name for your project and run `recroom new my-app`.
+Think up a name for your project and run `recroom new my-app`. We're going to
+create the [Mozilla Podcasts app](https://github.com/mozilla/high-fidelity), so
+we'll run `recroom new high-fidelity`.
 
 <aside class="notice">
   If you don't name your project, recroom will create a new project named
@@ -61,7 +63,7 @@ Think up a name for your project and run `recroom new my-app`.
 ``` bash
 # Enter your project's folder.
 # TODO: cd into the project on creation automatically?
-cd my-app
+cd high-fidelity
 
 # Run your recroom app.
 recroom run
