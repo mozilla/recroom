@@ -57,7 +57,8 @@ if (command === 'new' || command === 'create') {
     // Abort if this project already exists.
     if (shell.test('-e', projectName)) {
         console.log(
-            chalk.red("\"" + projectName + "\" already exists in this directory. Aborting..."),
+            chalk.red('"' + projectName +
+                      '" already exists in this directory. Aborting...'),
             chalk.yellow("\n\nPlease choose another project name.")
         );
         shell.exit(1);
@@ -72,6 +73,22 @@ if (command === 'new' || command === 'create') {
     });
 
     banner();
+}
+
+// Scaffold some things.
+if (command === 'generate' || command === 'scaffold' || command === 'g') {
+    if (['controller', 'model', 'view'].indexOf(opts.argv.remain[1]) === -1) {
+        console.log(
+            chalk.red('"' + opts.argv.remain[1] +
+                      '" is not a valid scaffold type.')
+        );
+
+        return;
+    }
+    spawn('yo', ['recroom:' + opts.argv.remain[1],
+                 opts.argv.remain.slice(2)], {
+        stdio: 'inherit'
+    });
 }
 
 // Pipe out to grunt serve.
