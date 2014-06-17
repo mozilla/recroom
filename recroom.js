@@ -67,11 +67,11 @@ if (command === 'new' || command === 'create') {
 
     shell.cd(projectName);
 
-    banner();
-
     spawn('yo', ['recroom'], {
         stdio: 'inherit'
     });
+
+    banner();
 }
 
 // Pipe out to grunt serve.
