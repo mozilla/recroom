@@ -9,7 +9,7 @@
     "mvc",
     "ember"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/mozilla/recroom",
   "repository": {
     "type": "git",
@@ -28,7 +28,7 @@
   "peerDependencies": {
     "bower": "~1.3.2",
     "grunt-cli": "~0.1.13",
-    "generator-recroom": ">=0.0.1",
+    "generator-recroom": ">=0.0.3",
     "yo": ">=1.0.0"
   },
   "licence": "Apache-2.0",
