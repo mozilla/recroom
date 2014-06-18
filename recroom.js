@@ -70,7 +70,7 @@ if (command === 'new' || command === 'create') {
 
     spawn('yo', ['recroom'], {
         stdio: 'inherit'
-    });
+    }).unref();
 
     banner();
 }
@@ -88,12 +88,12 @@ if (command === 'generate' || command === 'scaffold' || command === 'g') {
     spawn('yo', ['recroom:' + opts.argv.remain[1],
                  opts.argv.remain.slice(2)], {
         stdio: 'inherit'
-    });
+    }).unref();
 }
 
 // Pipe out to grunt serve.
 if (command === 'run' || command === 'serve') {
     spawn('grunt', ['serve'], {
         stdio: 'inherit'
-    });
+    }).unref();
 }
