@@ -10,10 +10,12 @@ var shell = require('shelljs');
 var spawn = require('child_process').spawn;
 
 var opts = nopt({
+    app: Boolean,
     banner: Boolean,
     help: Boolean,
     version: Boolean
 }, {
+    a: '--app', package: '--app',
     h: '--help',
     v: '--version'
 });
@@ -77,7 +79,8 @@ if (command === 'new' || command === 'create') {
 
 // Scaffold some things.
 if (command === 'generate' || command === 'scaffold' || command === 'g') {
-    if (['controller', 'model', 'view'].indexOf(opts.argv.remain[1]) === -1) {
+    if (['controller', 'model', 'page', 'view'].indexOf(
+        opts.argv.remain[1]) === -1) {
         console.log(
             chalk.red('"' + opts.argv.remain[1] +
                       '" is not a valid scaffold type.')
@@ -93,7 +96,18 @@ if (command === 'generate' || command === 'scaffold' || command === 'g') {
 
 // Pipe out to grunt serve.
 if (command === 'run' || command === 'serve') {
-    spawn('grunt', ['serve'], {
-        stdio: 'inherit'
-    }).unref();
+    // Pipe out to grunt watch:build -- this is the first step to running your
+    // packaged app inside Desktop B2G.
+    if (opts.app) {
+        spawn('grunt', ['build'], {
+            stdio: 'inherit'
+        }).unref();
+        spawn('grunt', ['watch:build'], {
+            stdio: 'inherit'
+        }).unref();
+    } else {
+        spawn('grunt', ['serve'], {
+            stdio: 'inherit'
+        }).unref();
+    }
 }
