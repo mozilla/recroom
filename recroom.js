@@ -94,7 +94,7 @@ if (command === 'generate' || command === 'scaffold' || command === 'g') {
     }).unref();
 }
 
-// Pipe out to grunt serve.
+// Pipe out to grunt (build, serve, test).
 if (command === 'run' || command === 'serve') {
     // Pipe out to grunt watch:build -- this is the first step to running your
     // packaged app inside Desktop B2G.
@@ -110,4 +110,9 @@ if (command === 'run' || command === 'serve') {
             stdio: 'inherit'
         }).unref();
     }
+}
+if (command === 'test') {
+    spawn('grunt', ['test'], {
+        stdio: 'inherit'
+    }).unref();
 }
