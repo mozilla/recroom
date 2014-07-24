@@ -67,14 +67,23 @@ if (command === 'new' || command === 'create') {
     }
 
     shell.mkdir(projectName);
-
     shell.cd(projectName);
 
-    spawn('yo', ['recroom'], {
-        stdio: 'inherit'
-    }).unref();
-
     banner();
+
+    var cmdToExec = "yo recroom";
+    if(opts.cordova){
+        //create the cordova app and dir structure
+        //TODO double check that && works on Windows. It should per here:
+        // http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ntcmds_shelloverview.mspx?mfr=true
+        cmdToExec += " && cordova create --link-to dist dist-cordova -i com.yourcompany."
+            + projectName + " -n " + projectName
+            + " && cd " + projectName;
+    }
+
+    shell.exec(cmdToExec, function(code, output) {
+        console.log(output);
+    });
 }
 
 // Scaffold some things.
