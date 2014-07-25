@@ -2,7 +2,23 @@
 module.exports = exports = function(grunt) {
     'use strict';
 
+    var sourceFiles = [
+        'Gruntfile.js',
+        'recroom.js',
+        'src/*.js',
+        'test/**/test.*.js'
+    ];
+
     grunt.initConfig({
+        jscs: {
+            source: sourceFiles
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            source: sourceFiles
+        },
         shell: {
             publishDocs: {
                 options: {
@@ -24,4 +40,5 @@ module.exports = exports = function(grunt) {
     grunt.registerTask('default', ['build', 'watch']);
     grunt.registerTask('publish', ['shell:publishDocs']);
     grunt.registerTask('serve', ['shell:serveDocs']);
+    grunt.registerTask('test', ['jshint', 'jscs']);
 };
