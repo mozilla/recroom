@@ -15,7 +15,9 @@
     "type": "git",
     "url": "git://github.com/mozilla/recroom.git"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "grunt test"
+  },
   "dependencies": {
     "shelljs": "~0.2.6",
     "chalk": "~0.4.0",
