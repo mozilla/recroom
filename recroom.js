@@ -2,7 +2,7 @@
 'use strict';
 
 var DEFAULT_PROJECT_NAME = 'recroom-app';
-var VERSION = '0.0.1';
+var VERSION = '0.0.4';
 
 var chalk = require('chalk');
 var nopt = require('nopt');
@@ -22,7 +22,8 @@ var opts = nopt({
 
 // Display version information.
 if (opts.version) {
-    return console.log(chalk.blue('Mozilla recroom, Version ' + VERSION));
+    console.log(chalk.blue('Rec Room, Version ' + VERSION));
+    process.exit();
 }
 
 // Thanks to @fwenzel for this one.
@@ -49,7 +50,8 @@ var command = opts.argv.remain[0];
 
 // Show the Mozilla dino banner.
 if (opts.banner) {
-    return banner();
+    banner();
+    process.exit();
 }
 
 // Create a new project and initialize an app using generator-recroom.
@@ -71,17 +73,18 @@ if (command === 'new' || command === 'create') {
 
     banner();
 
-    var cmdToExec = "yo recroom";
-    if(opts.cordova){
-        //create the cordova app and dir structure
-        //TODO double check that && works on Windows. It should per here:
-        // http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/ntcmds_shelloverview.mspx?mfr=true
-        cmdToExec += " && cordova create --link-to dist dist-cordova -i com.yourcompany."
-            + projectName + " -n " + projectName
-            + " && cd " + projectName;
+    var scaffoldCommand = "yo recroom";
+
+    // The --cordova argument allows users to create a cordova
+    // structure afterward.
+    if (opts.cordova) {
+        // Create the cordova app and directory structure.
+        scaffoldCommand += '&& cordova create --link-to dist dist-cordova ' +
+                           '-i com.yourcompany.yourface -n ' + projectName;
     }
 
-    shell.exec(cmdToExec, function(code, output) {
+    // TODO: Walk through commands in an array instead of relying on &&.
+    shell.exec(scaffoldCommand, function(code, output) {
         console.log(output);
     });
 }
@@ -95,7 +98,7 @@ if (command === 'generate' || command === 'scaffold' || command === 'g') {
                       '" is not a valid scaffold type.')
         );
 
-        return;
+        process.exit();
     }
     spawn('yo', ['recroom:' + opts.argv.remain[1],
                  opts.argv.remain.slice(2)], {
