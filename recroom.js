@@ -87,10 +87,8 @@ if (command === 'new' || command === 'create') {
     shell.exec(scaffoldCommand, function(code, output) {
         console.log(output);
     });
-}
-
-// Scaffold some things.
-if (command === 'generate' || command === 'scaffold' || command === 'g') {
+} else if (command === 'generate' || command === 'scaffold' ||
+           command === 'g') { // Scaffold some things.
     if (['controller', 'model', 'page', 'view'].indexOf(
         opts.argv.remain[1]) === -1) {
         console.log(
@@ -104,10 +102,12 @@ if (command === 'generate' || command === 'scaffold' || command === 'g') {
                  opts.argv.remain.slice(2)], {
         stdio: 'inherit'
     }).unref();
-}
-
-// Pipe out to grunt (build, serve, test).
-if (command === 'run' || command === 'serve') {
+} else if (command === 'build') {
+    spawn('grunt', ['build'], {
+        stdio: 'inherit'
+    }).unref();
+} else if (command === 'run' || command === 'serve') { // Pipe out to grunt
+                                                       // (build, serve, test).
     // Pipe out to grunt watch:build -- this is the first step to running your
     // packaged app inside Desktop B2G.
     if (opts.app) {
@@ -122,9 +122,12 @@ if (command === 'run' || command === 'serve') {
             stdio: 'inherit'
         }).unref();
     }
-}
-if (command === 'test') {
+} else if (command === 'test') {
     spawn('grunt', ['test'], {
         stdio: 'inherit'
     }).unref();
+} else {
+    console.log(
+        chalk.red('"' + command + '" is not a recognized command.')
+    );
 }
