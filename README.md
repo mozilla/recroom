@@ -25,8 +25,6 @@ npm install -g recroom
 
 To get the `recroom` binary installed on your system.
 
-**TODO:** Have recroom prompt to globally install Grunt, Yeoman, etc. after.
-
 ## Usage
 
 ### Create a new app
@@ -55,7 +53,5 @@ less debug output in the console) and heavily minifies your source files
 (including minifying your HTML).
 
 ### Deploy your app
-
-**TODO.**
 
 You can deploy your app to GitHub Pages using `recroom deploy`.
