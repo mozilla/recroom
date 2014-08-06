@@ -106,6 +106,10 @@ if (command === 'new' || command === 'create') {
     spawn('grunt', ['build'], {
         stdio: 'inherit'
     }).unref();
+} else if (command === 'deploy') {
+    spawn('grunt', ['deploy'], {
+        stdio: 'inherit'
+    }).unref();
 } else if (command === 'run' || command === 'serve') { // Pipe out to grunt
                                                        // (build, serve, test).
     // Pipe out to grunt watch:build -- this is the first step to running your
