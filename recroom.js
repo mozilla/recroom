@@ -2,12 +2,14 @@
 'use strict';
 
 var DEFAULT_PROJECT_NAME = 'recroom-app';
-var VERSION = '0.0.4';
+var VERSION = '0.1.0';
 
 var chalk = require('chalk');
 var nopt = require('nopt');
 var shell = require('shelljs');
 var spawn = require('child_process').spawn;
+
+var binaryPath = __dirname + '/node_modules/.bin/';
 
 var opts = nopt({
     app: Boolean,
@@ -73,20 +75,28 @@ if (command === 'new' || command === 'create') {
 
     banner();
 
-    var scaffoldCommand = "yo recroom";
+    var scaffoldCommand = binaryPath + 'yo recroom';
 
     // The --cordova argument allows users to create a cordova
     // structure afterward.
-    if (opts.cordova) {
+    if (opts.cordova && shell.which('cordova')) {
         // Create the cordova app and directory structure.
         scaffoldCommand += '&& cordova create --link-to dist dist-cordova ' +
                            '-i com.yourcompany.yourface -n ' + projectName;
     }
 
+    console.log(
+        chalk.blue('Creating your Rec Room project. This may take some time...')
+    );
+
     // TODO: Walk through commands in an array instead of relying on &&.
-    shell.exec(scaffoldCommand, function(code, output) {
-        console.log(output);
-    });
+    shell.exec(scaffoldCommand, {silent: true});
+
+    console.log(
+        'Project "' + chalk.blue(projectName) + '"" was created. Have fun!'
+    );
+
+    spawn('cd', [projectName]);
 } else if (command === 'generate' || command === 'scaffold' ||
            command === 'g') { // Scaffold some things.
     if (['controller', 'model', 'page', 'view'].indexOf(
@@ -98,38 +108,38 @@ if (command === 'new' || command === 'create') {
 
         process.exit();
     }
-    spawn('yo', ['recroom:' + opts.argv.remain[1],
+    spawn(binaryPath + 'yo', ['recroom:' + opts.argv.remain[1],
                  opts.argv.remain.slice(2)], {
         stdio: 'inherit'
-    }).unref();
+    });
 } else if (command === 'build') {
-    spawn('grunt', ['build'], {
+    spawn(binaryPath + 'grunt', ['build'], {
         stdio: 'inherit'
-    }).unref();
+    });
 } else if (command === 'deploy') {
-    spawn('grunt', ['deploy'], {
+    spawn(binaryPath + 'grunt', ['deploy'], {
         stdio: 'inherit'
-    }).unref();
+    });
 } else if (command === 'run' || command === 'serve') { // Pipe out to grunt
                                                        // (build, serve, test).
     // Pipe out to grunt watch:build -- this is the first step to running your
     // packaged app inside Desktop B2G.
     if (opts.app) {
-        spawn('grunt', ['build'], {
+        spawn(binaryPath + 'grunt', ['build'], {
             stdio: 'inherit'
-        }).unref();
-        spawn('grunt', ['watch:build'], {
+        });
+        spawn(binaryPath + 'grunt', ['watch:build'], {
             stdio: 'inherit'
-        }).unref();
+        });
     } else {
-        spawn('grunt', ['serve'], {
+        spawn(binaryPath + 'grunt', ['serve'], {
             stdio: 'inherit'
-        }).unref();
+        });
     }
 } else if (command === 'test') {
-    spawn('grunt', ['test'], {
+    spawn(binaryPath + 'grunt', ['test'], {
         stdio: 'inherit'
-    }).unref();
+    });
 } else {
     console.log(
         chalk.red('"' + command + '" is not a recognized command.')
