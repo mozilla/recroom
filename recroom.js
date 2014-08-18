@@ -58,8 +58,9 @@ if (opts.banner) {
 
 if (command === undefined) {
      console.log(
-            chalk.red("No command specified. Available commands: new, create, generate, scaffold, g, deploy, serve, run")
-            );
+         chalk.red('No command specified. Available commands: ') +
+         chalk.blue('new/create, generate/g/scaffold, deploy, serve, run')
+    );
     shell.exit(1);
 }
 
