@@ -56,6 +56,13 @@ if (opts.banner) {
     process.exit();
 }
 
+if (command === undefined) {
+     console.log(
+            chalk.red("No command specified. Available commands: new, create, generate, scaffold, g, deploy, serve, run")
+            );
+    shell.exit(1);
+}
+
 // Create a new project and initialize an app using generator-recroom.
 if (command === 'new' || command === 'create') {
     var projectName = opts.argv.remain[1] || DEFAULT_PROJECT_NAME;
