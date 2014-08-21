@@ -98,13 +98,11 @@ if (command === 'new' || command === 'create') {
     );
 
     // TODO: Walk through commands in an array instead of relying on &&.
-    shell.exec(scaffoldCommand, {silent: true});
+    shell.exec(scaffoldCommand);
 
     console.log(
         'Project "' + chalk.blue(projectName) + '"" was created. Have fun!'
     );
-
-    spawn('cd', [projectName]);
 } else if (command === 'generate' || command === 'scaffold' ||
            command === 'g') { // Scaffold some things.
     if (['controller', 'model', 'page', 'view'].indexOf(
