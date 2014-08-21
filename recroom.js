@@ -101,7 +101,7 @@ if (command === 'new' || command === 'create') {
     shell.exec(scaffoldCommand);
 
     console.log(
-        'Project "' + chalk.blue(projectName) + '"" was created. Have fun!'
+        'Project "' + chalk.blue(projectName) + '" was created. Have fun!'
     );
 } else if (command === 'generate' || command === 'scaffold' ||
            command === 'g') { // Scaffold some things.
