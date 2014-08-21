@@ -84,7 +84,7 @@ if (command === 'new' || command === 'create') {
     banner();
 
     var scaffoldCommand = binaryPath + 'yo recroom' +
-                          '--no-insight --no-update-notifier';
+                          ' --no-insight --no-update-notifier';
 
     // The --cordova argument allows users to create a cordova
     // structure afterward.
