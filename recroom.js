@@ -83,13 +83,14 @@ if (command === 'new' || command === 'create') {
 
     banner();
 
-    var scaffoldCommand = binaryPath + 'yo recroom';
+    var scaffoldCommand = binaryPath + 'yo recroom' +
+                          '--no-insight --no-update-notifier';
 
     // The --cordova argument allows users to create a cordova
     // structure afterward.
     if (opts.cordova && shell.which('cordova')) {
         // Create the cordova app and directory structure.
-        scaffoldCommand += '&& cordova create --link-to dist dist-cordova ' +
+        scaffoldCommand += ' && cordova create --link-to dist dist-cordova ' +
                            '-i com.yourcompany.yourface -n ' + projectName;
     }
 
