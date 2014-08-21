@@ -83,13 +83,14 @@ if (command === 'new' || command === 'create') {
 
     banner();
 
-    var scaffoldCommand = binaryPath + 'yo recroom';
+    var scaffoldCommand = binaryPath + 'yo recroom' +
+                          '--no-insight --no-update-notifier';
 
     // The --cordova argument allows users to create a cordova
     // structure afterward.
     if (opts.cordova && shell.which('cordova')) {
         // Create the cordova app and directory structure.
-        scaffoldCommand += '&& cordova create --link-to dist dist-cordova ' +
+        scaffoldCommand += ' && cordova create --link-to dist dist-cordova ' +
                            '-i com.yourcompany.yourface -n ' + projectName;
     }
 
@@ -98,13 +99,11 @@ if (command === 'new' || command === 'create') {
     );
 
     // TODO: Walk through commands in an array instead of relying on &&.
-    shell.exec(scaffoldCommand, {silent: true});
+    shell.exec(scaffoldCommand);
 
     console.log(
-        'Project "' + chalk.blue(projectName) + '"" was created. Have fun!'
+        'Project "' + chalk.blue(projectName) + '" was created. Have fun!'
     );
-
-    spawn('cd', [projectName]);
 } else if (command === 'generate' || command === 'scaffold' ||
            command === 'g') { // Scaffold some things.
     if (['controller', 'model', 'page', 'view'].indexOf(
