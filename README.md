@@ -9,7 +9,7 @@ It includes:
  * **Grunt** to run the tasks for your app, including building for production.
  * **I18n.js** to localize your app.
  * **Mocha** to test your app.
- * **Stylus** to write your CSS.
+ * **Sass** to write your CSS.
  * **Yeoman** to scaffold new code for your app's models and templates.
 
 Rec Room is a work-in-progress; please file bugs and we will work to fix them,
@@ -55,3 +55,11 @@ less debug output in the console) and heavily minifies your source files
 ### Deploy your app
 
 You can deploy your app to GitHub Pages using `recroom deploy`.
+
+### Tips/Notes
+
+**Sass:** Recroom uses [node-sass][node-sass], which handles Sass compilation with [libsass][lib-sass]. Libsass is currently lacking some of the latest features from the popular Sass Ruby Gem. See [Reporting Sass compilation and syntax issues][sass-notes]
+
+[lib-sass]: https://github.com/sass/libsass
+[sass-notes]: https://github.com/sass/node-sass#reporting-sass-compilation-and-syntax-issues
+[node-sass]: https://github.com/sass/node-sass
