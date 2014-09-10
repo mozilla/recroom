@@ -9,20 +9,20 @@
 
 1. Think up a name for your project! Make it short and memorable.
 
-2. Open your terminal, and cd (change directory) to a location where you’d like to create your project directory.
+2. Open your terminal, and `cd` (change directory) to a location where you’d like to create your project directory.
 
 3. Type in the following terminal command, replacing `my-app` with your project name: 
 
-
+````
 recroom new my-app
-
+````
 Note: A new folder will be created inside the directory you run recroom in, containing your new project.
 
 Note: If you don’t name your project and just type in `recroom new`, recroom will create a new project named recroom-app. You can change the name of your project by hand, later on.
 
 ## Start Your App
 
-Rec Room has created the basic files and structure for your app. It also provides a development server for you to view and debug your changes. Rec Room will automatically compile and concatenate your JavaScript, CoffeeScript, and Stylus files for you, as well as provide a host of other services and optimizations which we’ll provide more detail about later on.
+Rec Room has created the basic files and structure for your app. It also provides a development server for you to view and debug your changes. Rec Room will automatically compile and concatenate your JavaScript, CoffeeScript, and Sass files for you, as well as provide a host of other services and optimizations which we’ll provide more detail about later on.
 
 For now, let’s show how you can run your Rec Room app.
 
@@ -109,11 +109,11 @@ Over the course of this documentation, we will address the function of each of t
 
 We will start with short summaries of the directories in "app". 
 
-index.html — The main HTML file that loads Ember, your compiled JavaScript, your compiled CSS styles and other key files. Effectively, loading this file creates a Single Page App (SPA) that navigates it’s routes through hashchange events (e.g. /#app-page).
+index.html — The main HTML file that loads Ember, your compiled JavaScript, your compiled CSS styles and other key files. Effectively, loading this file creates a Single Page App (SPA) that navigates its routes through hashchange events (e.g. /#app-page).
 
-webapp.manifest — This file identifies your app, and describes its structure and assets. See the Manifest section for more details.
+webapp.manifest — This file identifies your app, and describes its structure and assets. See the [Manifest section](#the-manifest-file) for more details.
 
-*bower-components* — These are third party libraries installed for you through the [Bower](http://bower.io/) package manager. Bower is a powerful tool that you will explore later. It allows you to easily add libraries to your project from the command line, for example "bower install jquery". In the bower.json file, you can specify all the library and version dependencies for your app.
+*bower-components* — These are third party libraries installed for you through the [Bower](http://bower.io/) package manager. Bower is a powerful tool that you will explore later. It allows you to easily add libraries to your project from the command line, for example `bower install jquery`. In the bower.json file, you can specify all the library and version dependencies for your app.
 
 *images* — This is where you place image assets used by your app. For example, if you have a logo image or other pictures that are used in the app, they go here. Yeoman, our command line development tool, has tools for optimizing and compressing images.
 
@@ -123,9 +123,9 @@ webapp.manifest — This file identifies your app, and describes its structure a
 
 *scripts/router.js* — This is where you define the names of your routes in your application. Routes represent xxx. If you use Ember naming conventions, Ember will use the name of your route to lookup a controller. For example:
 
-this.route("testpage"); 
+`this.route("testpage"); `
 
-will wire to TestpageController automatically. Here is more information on [Ember Routing conventions](http://emberjs.com/guides/routing/).
+will wire to `TestpageController` automatically. Here is more information on [Ember Routing conventions](http://emberjs.com/guides/routing/).
 
 *scripts/store.js* — this file configures the type of store that Ember will use. The Ember store is used to cache data locally. Queries hit the local cache first and if data is not found, a request will be sent to the specified server or API.
 
@@ -181,11 +181,11 @@ Rec Room supports two application types: hosted and packaged apps. If you want t
 
 ### Hosted Apps
 
-Hosted apps are hosted on a web server like normal websites. In addition, a Firefox OS user can visit a URL and install the app to their home screen directly from a website (as opposed to installing through Firefox Marketplace). When a user launches a hosted app, it’s content is loaded from the remote server, unless content is cached locally (via appcache or Service Workers).
+Hosted apps are hosted on a web server like normal websites. In addition, a Firefox OS user can visit a URL and install the app to their home screen directly from a website (as opposed to installing through Firefox Marketplace). When a user launches a hosted app, its content is loaded from the remote server, unless content is cached locally (via appcache or Service Workers).
 
 ### Packaged Apps
 
-Packaged apps are distributed as a zip file and copied to the device when installed. When a user launches a packaged app, it’s contents are loaded from the zip file instead of a remote server.
+Packaged apps are distributed as a zip file and copied to the device when installed. When a user launches a packaged app, its contents are loaded from the zip file instead of a remote server.
 
 Packaged apps have access to a number of features that hosted apps don’t, such as key device services and hardware features.
 
