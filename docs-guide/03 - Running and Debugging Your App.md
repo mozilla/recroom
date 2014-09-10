@@ -11,7 +11,7 @@ During the process of development, you’ll want to run your web app across vari
 
 ## Getting started with debugging
 
-1. In your Terminal, assuming you are still in the directory of your new app, type "grunt serve". Assuming Firefox is your default browser, this will open your app in Firefox.
+1. In your Terminal, assuming you are still in the directory of your new app, type `grunt serve`. Assuming Firefox is your default browser, this will open your app in Firefox.
 
 2. In the menu, go to Tools > Web Developer > Toggle Tools (or use the shortcut Cmd + Opt + I on Mac, or Ctrl + Shift + I on Windows/Linux), which will open the Firefox Developer Tools.
 
