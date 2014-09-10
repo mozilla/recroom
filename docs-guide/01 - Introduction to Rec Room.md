@@ -23,7 +23,10 @@ Rec Room is **not** the only way to make mobile web apps for FirefoxOS. If howev
 
 Firefox OS apps are built using the Web. That means that all that you have learned about HTML, CSS and Javascript applies to developing apps for the Firefox OS platform. Mozilla, inconjunction with other browser vendors and the W3C has developed a number of [WebAPIs](https://wiki.mozilla.org/WebAPI) to provide access to key mobile phone systems and services. We will cover these APIs later in the documentation. 
 
-Rec Room uses Ember.js as the framework to build your app’s controllers, models, and views. While you don’t need to know Ember.js (our documentation will walk you through the basics you’ll need), some previous knowledge would be useful. You can always refer to the[ Ember.js docs](http://emberjs.com/api/) if you need additional information.
+
+Rec Room uses Ember.js as the framework to build your app’s controllers, models, and views. While you don’t need to know Ember.js (our documentation will walk you through the basics you’ll need), some previous knowledge would be useful. You can always refer to the excellent [Ember.js guides](http://emberjs.com/guides/). They do a good job explaining the structure of Ember apps, especially in relation to the [MVC (Model View Controller) design pattern](http://en.wikipedia.org/wiki/Model-view-controller).
+
+We also provide a brief introduction to important Ember concepts in [Appendix 2: A Brief Introduction to Ember](A2 - A Brief Introduction to Ember.md).
 
 
 ## Conventions

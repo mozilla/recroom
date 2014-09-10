@@ -149,9 +149,27 @@ will wire to `TestpageController` automatically. Here is more information on [Em
 
 *templates/components* — Put your Handlebars files for Ember Components you create here. Your Ember Component definitions will be in *scripts/components* (Ember.Component.extend) and your Ember Component Templates are here.
 
+## Types of Applications
+
+Rec Room supports two application types: hosted and packaged apps. If you want to build an app that works across all web-capable platforms, you’ll be focusing on a hosted app, but packaged apps provide a few advantages over hosted apps for platforms that support them, such as Firefox OS.
+
+### Hosted Apps
+
+Hosted apps are hosted on a web server like normal websites. In addition, a Firefox OS user can visit a URL and install the app to their home screen directly from a website (as opposed to installing through Firefox Marketplace). When a user launches a hosted app, its content is loaded from the remote server, unless content is cached locally (via appcache or Service Workers).
+
+### Packaged Apps
+
+Packaged apps are distributed as a zip file and copied to the device when installed. When a user launches a packaged app, its contents are loaded from the zip file instead of a remote server.
+
+Packaged apps have access to a number of features that hosted apps don’t, such as key device services and hardware features.
+
+```
+Rec Room focuses on the creation of packaged apps, but your app can easily be modified to be hosted as well.
+```
+
 ## The Manifest file
 
-This is an important file that helps distinguish a Firefox OS or open web app from a normal website or webapp. It is a JSON file that contains a description of the app, paths to resources such as icons, and permissions required by the app.
+When creating a packaged app, you need to specify certain resources to let the OS or runtime know about key files and metadata about the app. The manifest is an important file that helps distinguish a Firefox OS or open web app from a normal website or webapp. It is a JSON file that contains a description of the app, paths to resources such as icons, and permissions required by the app.
 
 An example "manifest.webapp" file is generated for you by Rec Room. This looks like:
 
@@ -175,20 +193,3 @@ Further documentation can be found on [MDN - App Manifest](https://developer.moz
 
 A matrix of what APIs are supported on various versions of FirefoxOS is available [here](https://developer.mozilla.org/en-US/Firefox_OS/API_support_table). 
 
-## Types of Applications
-
-Rec Room supports two application types: hosted and packaged apps. If you want to build an app that works across all web-capable platforms, you’ll be focusing on a hosted app, but packaged apps provide a few advantages over hosted apps for platforms that support them, such as Firefox OS.
-
-### Hosted Apps
-
-Hosted apps are hosted on a web server like normal websites. In addition, a Firefox OS user can visit a URL and install the app to their home screen directly from a website (as opposed to installing through Firefox Marketplace). When a user launches a hosted app, its content is loaded from the remote server, unless content is cached locally (via appcache or Service Workers).
-
-### Packaged Apps
-
-Packaged apps are distributed as a zip file and copied to the device when installed. When a user launches a packaged app, its contents are loaded from the zip file instead of a remote server.
-
-Packaged apps have access to a number of features that hosted apps don’t, such as key device services and hardware features.
-
-```
-Rec Room focuses on the creation of packaged apps, but your app can easily be modified to be hosted as well.
-```
