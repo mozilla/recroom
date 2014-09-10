@@ -66,7 +66,7 @@ echo $USER
 
 There are many other solutions to this problem on Stack Overflow and other places on the Internet. For a development computer with primarily one user, we recommend the above approach. 
 
-If you'd like an alternative approach that avoids chowin'ing /usr/local/lib/node_modules/, you could try:
+If you'd like an alternative approach that avoids chown'ing /usr/local/lib/node_modules/, you could try:
 
 ```
 npm install --prefix ~ recroom
@@ -75,6 +75,7 @@ source ~/.bash_profile
 ```
 
 This does the following:
+
 1. Tells npm to create a node_modules directory in your home directory and install Rec Room there
 2. Adds the node_modules/.bin directory in your home directory to your PATH
 3. Reloads your BASH profile so that your PATH will be updated
