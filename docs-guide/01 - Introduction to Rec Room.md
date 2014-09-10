@@ -52,13 +52,12 @@ Rec Room is controlled using a set of command line tools. On your given platform
 1. Open your Terminal or command line now.
 2. Rec Room requires[ Node.js](http://nodejs.org/download/). Install node to get started with Rec Room.
 3. Next, install Rec Room using the node package manager (NPM):
+
 ```
 npm install -g recroom
 ```
 
-```
-If you get an error about permissions and are on Linux, Mac OS X, or another flavour of Unix, you may have issues with the ownership of your .npm directory (http://stackoverflow.com/questions/16151018/npm-throws-error-without-sudo). We strongly encourage people not to use sudo with npm, packages can execute arbitrary scripts.
-```
+Note: See [Appendix 1 - Rec Room, Yeoman and Permissions on Mac OSX](A1 - Rec Room, Yeoman and Permissions on Mac OSX.md) if you're having issues with permissions on OSX. This advice can apply to Linux and other Unix variants as well.
 
 ## Testing and debugging via a web browser
 

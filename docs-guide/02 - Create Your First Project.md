@@ -13,12 +13,11 @@
 
 3. Type in the following terminal command, replacing `my-app` with your project name: 
 
-
+```
 recroom new my-app
+```
 
-Note: A new folder will be created inside the directory you run recroom in, containing your new project.
-
-Note: If you don’t name your project and just type in `recroom new`, recroom will create a new project named recroom-app. You can change the name of your project by hand, later on.
+Note: A new folder will be created inside the directory you run `recroom` in, containing your new project. If you don’t name your project and just type in `recroom new`, Rec Room will create a new project named `recroom-app`. You can change the name of your project by hand, later on.
 
 ## Start Your App
 
