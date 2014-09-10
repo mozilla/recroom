@@ -25,6 +25,9 @@ npm install -g recroom
 
 To get the `recroom` binary installed on your system.
 
+# Documentation
+[Click here for the in-depth Rec Room guide](docs-guide/00 - Table of Contents.md)
+
 ## Usage
 
 ### Create a new app
