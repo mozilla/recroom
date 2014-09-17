@@ -2,7 +2,7 @@
 'use strict';
 
 var DEFAULT_PROJECT_NAME = 'recroom-app';
-var VERSION = '0.1.0';
+var VERSION = '0.1.4';
 
 var chalk = require('chalk');
 var nopt = require('nopt');
