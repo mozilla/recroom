@@ -17,5 +17,5 @@ module.exports = function(opts, binaryPath) {
                opts.argv.remain.slice(2)], {
       stdio: 'inherit'
   });
-}
+};
 

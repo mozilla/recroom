@@ -6,5 +6,5 @@ module.exports = function(opts, binaryPath) {
     spawn(binaryPath + 'grunt', ['build'], {
               stdio: 'inherit'
     });
-}
+};
 

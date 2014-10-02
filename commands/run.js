@@ -15,5 +15,5 @@ module.exports = function(opts, binaryPath) {
             stdio: 'inherit'
         });
     }
-}
+};
 
