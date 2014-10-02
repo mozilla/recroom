@@ -2,6 +2,7 @@
     "disallowSpacesInAnonymousFunctionExpression": {
         "beforeOpeningRoundBrace": true
     },
+    "disallowTrailingComma": true,
     "requireBlocksOnNewline": true,
     "requireSpaceAfterKeywords": [
         "if",
@@ -18,5 +19,11 @@
     "requireSpacesInConditionalExpression": true,
     "requireSpacesInFunctionExpression": {
         "beforeOpeningCurlyBrace": true
+    },
+    "safeContextKeyword": "self",
+    "validateIndentation": "4",
+    "validateQuoteMarks": {
+        "escape": true,
+        "mark": "'"
     }
 }
