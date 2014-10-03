@@ -6,7 +6,8 @@ module.exports = exports = function(grunt) {
         'Gruntfile.js',
         'recroom.js',
         'src/*.js',
-        'test/**/test.*.js'
+        'test/**/test.*.js',
+        'utils.js'
     ];
 
     grunt.initConfig({
