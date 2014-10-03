@@ -38,9 +38,9 @@ if (opts.banner) {
 }
 
 if (command === undefined) {
-     console.log(
-         chalk.red('No command specified. Available commands: ') +
-         chalk.blue('new/create, generate/g/scaffold, deploy, serve, run')
+    console.log(
+        chalk.red('No command specified. Available commands: ') +
+        chalk.blue('new/create, generate/g/scaffold, deploy, serve, run')
     );
     shell.exit(1);
 }
@@ -54,7 +54,7 @@ if (command === 'new' || command === 'create') {
         console.log(
             chalk.red('"' + projectName +
                       '" already exists in this directory. Aborting...'),
-            chalk.yellow("\n\nPlease choose another project name.")
+            chalk.yellow('\n\nPlease choose another project name.')
         );
         shell.exit(1);
     }
@@ -97,7 +97,7 @@ if (command === 'new' || command === 'create') {
         process.exit();
     }
     spawn(binaryPath + 'yo', ['recroom:' + opts.argv.remain[1],
-                 opts.argv.remain.slice(2)], {
+    opts.argv.remain.slice(2)], {
         stdio: 'inherit'
     });
 } else if (command === 'build') {
