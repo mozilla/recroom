@@ -22,6 +22,7 @@
     "shelljs": "~0.2.6",
     "chalk": "~0.4.0",
     "nopt": "~2.2.0",
+    "extfs": "~0.0.7",
     "grunt": "~0.4.4",
     "load-grunt-tasks": "^0.4.0",
     "grunt-shell": "^0.6.4",
