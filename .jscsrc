@@ -21,7 +21,7 @@
         "beforeOpeningCurlyBrace": true
     },
     "safeContextKeyword": "self",
-    "validateIndentation": "4",
+    "validateIndentation": 4,
     "validateQuoteMarks": {
         "escape": true,
         "mark": "'"
