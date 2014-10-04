@@ -38,7 +38,7 @@ var commandName = opts.argv.remain[0];
 var availableCommands = Object.keys(recroomCommands).map(function(key) { 
     var plusAliases = '';
     if (recroomCommands[key].aliases.length > 0) {
-        plusAliases = '/' + recroomCommands[key].aliases.join('/')
+        plusAliases = '/' + recroomCommands[key].aliases.join('/');
     }
     return key.substring(4) + plusAliases;
 });
@@ -54,9 +54,9 @@ function findCommand() {
 }
 
 if (commandName === undefined) {
-     console.log(
-         chalk.red('No command specified. Available commands: ') +
-         chalk.blue(availableCommands.join(", "))
+    console.log(
+        chalk.red('No command specified. Available commands: ') +
+        chalk.blue(availableCommands.join(', '))
     );
     shell.exit(1);
 }
@@ -69,7 +69,7 @@ else {
     else {
         console.log(
             chalk.red('"' + commandName + '" is not a recognized command. Available commands: ') +
-            chalk.blue(availableCommands.join(", "))
+            chalk.blue(availableCommands.join(', '))
         );
     }
 }
