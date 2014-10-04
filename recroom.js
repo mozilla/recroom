@@ -8,6 +8,7 @@ var chalk = require('chalk');
 var nopt = require('nopt');
 var shell = require('shelljs');
 var spawn = require('child_process').spawn;
+var banner = require('./banner');
 
 var util = require('./utils');
 
@@ -30,26 +31,6 @@ if (opts.version) {
     process.exit();
 }
 
-// Thanks to @fwenzel for this one.
-function banner() {
-    console.log(
-        "\n",
-        chalk.red("             _.-~-.\n"),
-        chalk.red("           7''  Q..\\\n"),
-        chalk.red("        _7         (_\n"),
-        chalk.red("      _7  _/    _q.  /\n"),
-        chalk.red("    _7 . ___  /VVvv-'_\n"),
-        chalk.red("   7/ / /~- \\_\\      '-._     .-'                      /       //\n"),
-        chalk.red("  ./ ( /-~-/||'=.__  '::. '-~'' {             ___   /  //     ./{\n"),
-        chalk.red(" V   V-~-~| ||   __''_   ':::.   ''~-~.___.-'' _/  // / {_   /  {  /\n"),
-        chalk.red("  VV/-~-~-|/ \\ .'__'. '.    '::                    "), chalk.white("_ _ _"), chalk.red("       ''.\n"),
-        chalk.red("  / /~~~~||VVV/ /  \\ )  \\       "), chalk.white("_ __ ___   ___ ___(_) | | __ _"), chalk.red("  .::'\n"),
-        chalk.red(" / (~-~-~\\.-' /    \\'   \\::::. "), chalk.white("| '_ ` _ \\ / _ \\_  / | | |/ _` |"), chalk.red(":::'\n"),
-        chalk.red("/..\\    /..\\__/      '     ':::"), chalk.white("| | | | | | (_) / /| | | | (_| |"), chalk.red("::'\n"),
-        chalk.red("vVVv    vVVv                 ':"), chalk.white("|_| |_| |_|\\___/___|_|_|_|\\__,_|"), chalk.red("''\n\n")
-    );
-}
-
 var command = opts.argv.remain[0];
 
 // Show the Mozilla dino banner.
@@ -59,9 +40,9 @@ if (opts.banner) {
 }
 
 if (command === undefined) {
-     console.log(
-         chalk.red('No command specified. Available commands: ') +
-         chalk.blue('new/create, generate/g/scaffold, deploy, serve, run')
+    console.log(
+        chalk.red('No command specified. Available commands: ') +
+        chalk.blue('new/create, generate/g/scaffold, deploy, serve, run')
     );
     shell.exit(1);
 }
@@ -75,7 +56,7 @@ if (command === 'new' || command === 'create') {
         console.log(
             chalk.red('"' + projectName +
                       '" already exists in this directory. Aborting...'),
-            chalk.yellow("\n\nPlease choose another project name.")
+            chalk.yellow('\n\nPlease choose another project name.')
         );
         shell.exit(1);
     }
@@ -118,7 +99,7 @@ if (command === 'new' || command === 'create') {
         process.exit();
     }
     spawn(binaryPath + 'yo', ['recroom:' + opts.argv.remain[1],
-                 opts.argv.remain.slice(2)], {
+    opts.argv.remain.slice(2)], {
         stdio: 'inherit'
     });
 } else if (command === 'build') {
