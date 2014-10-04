@@ -114,10 +114,12 @@ if (command === 'new' || command === 'create') {
                                                        // (build, serve, test).
     // Pipe out to grunt watch:build -- this is the first step to running your
     // packaged app inside Desktop B2G.
-    var dependenciesExist = util.checkForDeps(["app/bower_components", "node_modules"]);
+    var dependenciesExist = util.checkForDeps([
+        'app/bower_components', 'node_modules'
+    ]);
 
     if (dependenciesExist === true) {
-         if (opts.app) {
+        if (opts.app) {
             spawn(binaryPath + 'grunt', ['build'], {
                 stdio: 'inherit'
             });
@@ -128,11 +130,10 @@ if (command === 'new' || command === 'create') {
             spawn(binaryPath + 'grunt', ['serve'], {
                 stdio: 'inherit'
             });
-        }   
-    }
-    else {
+        }
+    } else {
         console.log(
-            chalk.red('Warning: Some project dependencies are missing. Aborting...') + 
+            chalk.red('Warning: Some project dependencies are missing. Aborting...') +
             chalk.yellow('\nTry running `bower install && npm install` from the root of your project.')
         );
         shell.exit(1);
