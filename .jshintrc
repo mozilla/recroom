@@ -19,7 +19,6 @@
   "trailing": false,
 
   "globals": {
-    "define": true,
-    "module": true
+    "define": true
   }
 }
