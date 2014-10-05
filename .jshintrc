@@ -10,6 +10,7 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
+  "node": true,
   "nonew": true,
   "quotmark": false,
   "undef": true,
@@ -20,7 +21,6 @@
   "globals": {
     "define": true,
     "module": true,
-    "require": true,
-    "process": true
+    "require": true
   }
 }
