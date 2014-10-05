@@ -20,7 +20,6 @@
 
   "globals": {
     "define": true,
-    "module": true,
-    "require": true
+    "module": true
   }
 }
