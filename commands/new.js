@@ -2,9 +2,10 @@
 
 var DEFAULT_PROJECT_NAME = 'recroom-app';
 
+var banner = require('../banner');
 var chalk = require('chalk');
 var shell = require('shelljs');
-var banner = require('../banner');
+var spawn = require('child_process').spawn;
 
 module.exports = {
     name: 'new',
@@ -48,8 +49,23 @@ module.exports = {
         // TODO: Walk through commands in an array instead of relying on &&.
         shell.exec(scaffoldCommand);
 
-        console.log(
-            'Project "' + chalk.blue(projectName) + '" was created. Have fun!'
-        );
+        // Build the project so we have files in the /dist folder
+        var buildProcess = spawn(this.binaryPath + 'grunt', ['build'], {
+            stdio: 'inherit'
+        });
+
+        buildProcess.on('close', function(code) {
+            if (code === 0) {
+                console.log(
+                    '\nProject "' + chalk.blue(projectName) + '" was created. Have fun!'
+                );
+            }
+            else {
+                console.log(
+                    chalk.red('\nSomething went wrong while building your application.' +
+                            'Try running `recroom build` from the root of your project.')
+                );
+            }
+        });
     }
 };
