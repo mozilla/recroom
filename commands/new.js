@@ -6,6 +6,7 @@ var banner = require('../banner');
 var chalk = require('chalk');
 var shell = require('shelljs');
 var spawn = require('child_process').spawn;
+var semver = require('semver');
 
 module.exports = {
     name: 'new',
@@ -31,20 +32,43 @@ module.exports = {
 
         banner();
 
+        console.log(
+            chalk.blue('Creating your Rec Room project. This may take some time...')
+        );
+
         var scaffoldCommand = this.binaryPath + 'yo recroom' +
                               ' --no-insight --no-update-notifier';
 
         // The --cordova argument allows users to create a cordova
         // structure afterward.
-        if (opts.cordova && shell.which('cordova')) {
-            // Create the cordova app and directory structure.
-            scaffoldCommand += ' && cordova create --link-to dist dist-cordova ' +
-                               '-i com.yourcompany.yourface -n ' + projectName;
-        }
+        if (opts.cordova) {
+            // Check that cordova is installed
+            if (shell.which('cordova')) {
+                var cordovaVersion = shell.exec('cordova --version', {silent:true}).output;
+                var cordovaIsRecent = semver.gte(cordovaVersion, '3.5.0-0.2.6');
 
-        console.log(
-            chalk.blue('Creating your Rec Room project. This may take some time...')
-        );
+                // Check that cordova is updated. See issue: https://github.com/mozilla/recroom/issues/22
+                if (cordovaIsRecent) {
+                    // Create the cordova app and directory structure.
+                    scaffoldCommand += ' && cordova create --link-to dist dist-cordova ' +
+                                       '-i com.yourcompany.yourface -n ' + projectName;
+                }
+                else {
+                    console.log(
+                        chalk.red('\nIt appears Cordova is out-of-date, which may cause problems building your application.'),
+                        chalk.yellow('\nPlease try updating your Cordova installation with `npm update -g cordova`')
+                    );
+                    shell.exit(1);
+                }
+            }
+            else {
+                console.log(
+                    chalk.red('\nCordova not found.'),
+                    chalk.yellow('\nPlease install Cordova by running `npm install -g cordova`')
+                );
+                shell.exit(1);
+            }
+        }
 
         // TODO: Walk through commands in an array instead of relying on &&.
         shell.exec(scaffoldCommand);
