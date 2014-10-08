@@ -3,6 +3,7 @@ module.exports = exports = function(grunt) {
     'use strict';
 
     var sourceFiles = [
+        'commands/*.js',
         'Gruntfile.js',
         'recroom.js',
         'src/*.js',
