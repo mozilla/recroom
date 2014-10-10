@@ -12,7 +12,12 @@ module.exports = {
     name: 'new',
     description: 'Creates a recroom project in a new folder.',
     availableArguments: ['app-name'],
-    availableOptions: ['cordova'],
+    availableOptions: [
+        {
+            name: 'cordova',
+            description: 'Creates a cordova structure in /dist-cordova'
+        }
+    ],
     aliases: ['create'],
     run: function(opts) {
         var projectName = opts.argv.remain[1] || DEFAULT_PROJECT_NAME;
