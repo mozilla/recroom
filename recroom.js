@@ -7,6 +7,10 @@ var chalk = require('chalk');
 var nopt = require('nopt');
 var shell = require('shelljs');
 
+var banner = require('./banner');
+var recroomCommands = require('./commands');
+var help = require('./help');
+
 var opts = nopt({
     app: Boolean,
     banner: Boolean,
@@ -18,8 +22,11 @@ var opts = nopt({
     v: '--version'
 });
 
-var recroomCommands = require('./commands');
-var banner = require('./banner');
+// Display help info
+if (opts.help) {
+    help.showHelpInfo(opts.argv.remain[0]);
+    process.exit();
+}
 
 // Display version information.
 if (opts.version) {

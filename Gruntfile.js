@@ -5,6 +5,7 @@ module.exports = exports = function(grunt) {
     var sourceFiles = [
         'commands/*.js',
         'Gruntfile.js',
+        'help.js',
         'recroom.js',
         'src/*.js',
         'test/**/test.*.js',
