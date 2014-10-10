@@ -5,11 +5,12 @@ var spawn = require('child_process').spawn;
 
 module.exports = {
     name: 'generate',
-    description: 'Creates a recroom project in a new folder.',
-    availableArguments: ['page', 'controller', 'model', 'route', 'view'],
+    description: 'Scaffolds the files needed to create a component of your app (model/view/controller/page)',
+    availableArguments: ['component', 'name'],
     aliases: ['g', 'scaffold'],
+    availableComponents: ['controller', 'model', 'page', 'view'],
     run: function(opts) {
-        if (['controller', 'model', 'page', 'view'].indexOf(
+        if (this.availableComponents.indexOf(
             opts.argv.remain[1]) === -1) {
             console.log(
                 chalk.red('"' + opts.argv.remain[1] +
