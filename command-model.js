@@ -6,7 +6,7 @@ function Command(name) {
     this.binaryPath = __dirname + '/node_modules/.bin/';
     this.aliases = this.aliases || [];
     this.availableArguments = this.availableArguments || [];
-    this.options = this.options || [];
+    this.availableOptions = this.availableOptions || [];
 }
 
 Command.prototype.description = null;
