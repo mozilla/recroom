@@ -1,4 +1,5 @@
 {
+    "disallowKeywordsOnNewLine": ["else"],
     "disallowSpacesInAnonymousFunctionExpression": {
         "beforeOpeningRoundBrace": true
     },

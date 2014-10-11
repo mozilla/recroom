@@ -52,16 +52,14 @@ module.exports = {
                     // Create the cordova app and directory structure.
                     scaffoldCommand += ' && cordova create --link-to dist dist-cordova ' +
                                        '-i com.yourcompany.yourface -n ' + projectName;
-                }
-                else {
+                } else {
                     console.log(
                         chalk.red('\nIt appears Cordova is out-of-date, which may cause problems building your application.'),
                         chalk.yellow('\nPlease try updating your Cordova installation with `npm update -g cordova`')
                     );
                     shell.exit(1);
                 }
-            }
-            else {
+            } else {
                 console.log(
                     chalk.red('\nCordova not found.'),
                     chalk.yellow('\nPlease install Cordova by running `npm install -g cordova`')
@@ -83,8 +81,7 @@ module.exports = {
                 console.log(
                     '\nProject "' + chalk.blue(projectName) + '" was created. Have fun!'
                 );
-            }
-            else {
+            } else {
                 console.log(
                     chalk.red('\nSomething went wrong while building your application.' +
                             'Try running `recroom build` from the root of your project.')

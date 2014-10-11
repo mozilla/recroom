@@ -59,14 +59,11 @@ if (commandName === undefined) {
         chalk.blue(availableCommands.join(', '))
     );
     shell.exit(1);
-}
-
-else {
+} else {
     var command = findCommand();
     if (command) {
         command.run(opts);
-    }
-    else {
+    } else {
         console.log(
             chalk.red('"' + commandName + '" is not a recognized command. Available commands: ') +
             chalk.blue(availableCommands.join(', '))

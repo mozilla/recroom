@@ -11,8 +11,7 @@ commandFiles.forEach(function(file) {
     var commandName = path.basename(file, '.js');
     if (commandName === 'index' || commandName === '.DS_Store') { 
         return;
-    }
-    else {
+    } else {
         var module = require('./' + file);
         var moduleName = 'cmd_' + commandName;
         var commandInstance = new Command(commandName);
