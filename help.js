@@ -11,17 +11,12 @@ module.exports = {
         var configs = this.formatProps(command);
 
         var syntax = chalk.white('\nrecroom ' + command.name) +
-                                                configs.availableArguments +
-                                                configs.availableOptions;
-        var description = chalk.white('\n' + command.description);
+                     configs.availableArguments +
+                     configs.availableOptions;
+        var description = '\n' + chalk.white(command.description);
         var commandOptions = configs.optionDescriptions || '';
         
-        console.log(syntax,
-                    description, 
-                    configs.aliases,
-                    commandOptions,
-                    '\n'
-        );
+        console.log(syntax, description, configs.aliases, commandOptions, '\n');
     },
 
     // Formats command arguments, aliases and options for display
@@ -70,10 +65,9 @@ module.exports = {
     showHelpInfo: function(commandName) {
         if (commandName && recroomCommands['cmd_' + commandName]) {
             this.printCommandHelp(recroomCommands['cmd_' + commandName]);
-        }
-        else {
-            console.log('usage: recroom <command> [args]',
-                        chalk.yellow('\nAvailable Commands:')
+        } else {
+            console.log('usage: recroom <command> [args]\n' +
+                        chalk.yellow('Available Commands:')
             );
             for (var key in recroomCommands) {
                 var command = recroomCommands[key];
