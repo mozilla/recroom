@@ -3,10 +3,13 @@ module.exports = exports = function(grunt) {
     'use strict';
 
     var sourceFiles = [
+        'commands/*.js',
         'Gruntfile.js',
+        'help.js',
         'recroom.js',
         'src/*.js',
-        'test/**/test.*.js'
+        'test/**/test.*.js',
+        'utils.js'
     ];
 
     grunt.initConfig({
