@@ -10,6 +10,8 @@ A tool belt for Mobile Web App developers
 ### [Chapter 2 - Create Your First Project](02 - Create Your First Project.md)
 ### [Chapter 3 - Running and Debugging Your App](03 - Running and Debugging Your App.md)
 ### [Chapter 4 - Let's Build a Rec Room App](04 - Let's Build a Rec Room App.md)
+### [Chapter 5: UI Widgets and Layout](05 - UI Widgets and Layout.md)
+### [Chapter 6: Animation and Graphics](06 - Animation and Graphics.md)
 ### [Chapter 7 - Manifest and Permissions](07 - Manifest and Permissions.md)
 ### [Chapter 8 - Web APIs - Accessing Phone APIs and Hardware](08 - Web APIs - Accessing Phone APIs and Hardware.md)
 ### [Chapter 9 - Data Management, Storage and Offline](09 - Data Management, Storage and Offline.md)
